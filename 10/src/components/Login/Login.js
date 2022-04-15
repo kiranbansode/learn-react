@@ -54,7 +54,7 @@ const Login = (props) => {
 		return () => {
 			console.log("EFFECT CLEANUP - 2");
 		};
-	}, [passwordState.value]);
+	}, []);
 
 	useEffect(() => {
 		const identifier = setTimeout(() => {
