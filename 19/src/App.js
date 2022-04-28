@@ -1,29 +1,81 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Cart from "./components/Cart/Cart";
 import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
+import { uiActions } from "./store/ui-slice";
+import Notification from "./components/UI/Notification";
+
+let isInitial = true;
 
 function App() {
+	const dispatch = useDispatch();
 	const showCart = useSelector(({ ui }) => ui.cartIsVisible);
+	const { notification } = useSelector(({ ui }) => ui);
+
 	const cart = useSelector(({ cart }) => cart);
 
 	useEffect(() => {
-		fetch(
-			"https://react-http-850cf-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
-			{
-				method: "PUT",
-				body: JSON.stringify(cart),
+		const sendCartData = async () => {
+			dispatch(
+				uiActions.showNotification({
+					status: "pending",
+					title: "Sending",
+					message: "Sending cart data",
+				})
+			);
+
+			const response = await fetch(
+				"https://react-http-850cf-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
+				{
+					method: "PUT",
+					body: JSON.stringify(cart),
+				}
+			);
+			if (!response.ok) {
+				throw new Error("Sending cart data failed");
 			}
-		);
-	}, [cart]);
+
+			dispatch(
+				uiActions.showNotification({
+					status: "success",
+					title: "Success",
+					message: "Sent cart data successfully",
+				})
+			);
+		};
+
+		if (isInitial) {
+			isInitial = false;
+			return;
+		}
+
+		sendCartData().catch((error) => {
+			dispatch(
+				uiActions.showNotification({
+					status: "error",
+					title: "Error!",
+					message: "Sending cart data failed",
+				})
+			);
+		});
+	}, [cart, dispatch]);
 
 	return (
-		<Layout>
-			{showCart && <Cart />}
-			<Products />
-		</Layout>
+		<>
+			{notification && (
+				<Notification
+					status={notification.status}
+					title={notification.title}
+					message={notification.message}
+				/>
+			)}
+			<Layout>
+				{showCart && <Cart />}
+				<Products />
+			</Layout>
+		</>
 	);
 }
 
