@@ -20,6 +20,6 @@ export async function loader() {
 		// ...
 	} else {
 		const resData = await response.json();
-		return resData.event;
+		return resData.events;
 	}
 }
