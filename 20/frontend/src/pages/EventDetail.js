@@ -6,14 +6,14 @@ import {
 } from "react-router-dom";
 import EventItem from "../components/EventItem";
 
-function EventDetailsPage() {
+function EventDetailPage() {
 	// const data = useLoaderData();
 	const data = useRouteLoaderData("event-detail");
 
 	return <EventItem event={data.event} />;
 }
 
-export default EventDetailsPage;
+export default EventDetailPage;
 
 export async function loader({ request, params }) {
 	const id = params.eventId;
