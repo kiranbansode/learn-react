@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { Outlet, useRouteLoaderData, useSubmit } from "react-router-dom";
+import { Outlet, useLoaderData, useSubmit } from "react-router-dom";
 
 import MainNavigation from "../components/MainNavigation";
-import { getTokenDuration } from "../utils/auth";
+import { getTokenDuration } from "../util/auth";
 
 function RootLayout() {
 	// const navigation = useNavigation();
-	const token = useRouteLoaderData("root");
+	const token = useLoaderData();
 	const submit = useSubmit();
 
 	useEffect(() => {

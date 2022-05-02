@@ -44,7 +44,7 @@ function MainNavigation() {
 					{!token && (
 						<li>
 							<NavLink
-								to="/auth"
+								to="/auth?mode=login"
 								className={({ isActive }) =>
 									isActive ? classes.active : undefined
 								}
@@ -53,7 +53,6 @@ function MainNavigation() {
 							</NavLink>
 						</li>
 					)}
-
 					{token && (
 						<li>
 							<Form action="/logout" method="post">
