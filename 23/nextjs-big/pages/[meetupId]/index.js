@@ -1,13 +1,13 @@
-import { useRouter } from "next/router";
-import MeetupDetail from "../../components/meetups/MeetupDetail";
+import { useRouter } from 'next/router';
+import MeetupDetail from '../../components/meetups/MeetupDetail';
 
 function MeetupDetails() {
 	return (
 		<MeetupDetail
-			image="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sunset_gondola_Basilica_Della_Salute_.png/1280px-Sunset_gondola_Basilica_Della_Salute_.png"
-			title="A First Meetup"
-			address="Some Street 5, Some City"
-			description="The meetup Description"
+			image='https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sunset_gondola_Basilica_Della_Salute_.png/1280px-Sunset_gondola_Basilica_Della_Salute_.png'
+			title='A First Meetup'
+			address='Some Street 5, Some City'
+			description='The meetup Description'
 		/>
 	);
 }
@@ -18,12 +18,12 @@ export async function getStaticPaths() {
 		paths: [
 			{
 				params: {
-					meetupId: "m1",
+					meetupId: 'm1',
 				},
 			},
 			{
 				params: {
-					meetupId: "m2",
+					meetupId: 'm2',
 				},
 			},
 		],
@@ -41,11 +41,11 @@ export async function getStaticProps(context) {
 		props: {
 			meetupData: {
 				image:
-					"https://upload.wikimedia.org/wikipedia/commons/,thumb/2/21/Sunset_gondola_Basilica_Della_Salute_.png/1280px-Sunset_gondola_Basilica_Della_Salute_.png",
+					'https://upload.wikimedia.org/wikipedia/commons/,thumb/2/21/Sunset_gondola_Basilica_Della_Salute_.png/1280px-Sunset_gondola_Basilica_Della_Salute_.png',
 				id: meetupId,
-				title: "A First Meetup",
-				address: "Some Street 5, Some City",
-				description: "The meetup Description",
+				title: 'A First Meetup',
+				address: 'Some Street 5, Some City',
+				description: 'The meetup Description',
 			},
 		},
 	};
