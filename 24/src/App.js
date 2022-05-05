@@ -52,9 +52,9 @@ class App extends Component {
 					)}
 				</Transition>
 
-				{this.state.modalIsOpen ? (
-					<Modal closed={this.closeModal} show={this.state.modalIsOpen} />
-				) : null}
+				<Transition in={this.state.modalIsOpen} timeout={300}>
+					{(state) => <Modal closed={this.closeModal} show={state} />}
+				</Transition>
 
 				{this.state.modalIsOpen ? (
 					<Backdrop show={this.state.modalIsOpen} />
