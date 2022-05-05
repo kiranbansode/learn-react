@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Modal.css';
 
-const modal = (props) => {
+const Modal = (props) => {
 	const cssClasses = ['Modal', props.show ? 'ModalOpen' : 'ModalClosed'];
 
 	return (
@@ -15,5 +15,4 @@ const modal = (props) => {
 	);
 };
 
-export default modal;
-v;
+export default Modal;
