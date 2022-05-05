@@ -37,6 +37,12 @@ class App extends Component {
 					timeout={1000}
 					mountOnEnter
 					unmountOnExit
+					onEnter={() => console.log('onEnter')}
+					onEntering={() => console.log('onEntering')}
+					onEntered={() => console.log('onEntered')}
+					onExit={() => console.log('onExit')}
+					onExiting={() => console.log('onExiting')}
+					onExited={() => console.log('onExited')}
 				>
 					{(state) => (
 						<div
@@ -44,22 +50,15 @@ class App extends Component {
 								backgroundColor: 'red',
 								width: 100,
 								height: 100,
-								margin: '20px auto',
+								margin: 'auto',
 								transition: 'opacity 1s ease-out',
 								opacity: state === 'exiting' ? 0 : 1,
 							}}
 						/>
 					)}
 				</Transition>
-
-				<Transition in={this.state.modalIsOpen} timeout={300}>
-					{(state) => <Modal closed={this.closeModal} show={state} />}
-				</Transition>
-
-				{this.state.modalIsOpen ? (
-					<Backdrop show={this.state.modalIsOpen} />
-				) : null}
-
+				<Modal show={this.state.modalIsOpen} closed={this.closeModal} />
+				{this.state.modalIsOpen ? <Backdrop show /> : null}
 				<button className='Button' onClick={this.showModal}>
 					Open Modal
 				</button>
