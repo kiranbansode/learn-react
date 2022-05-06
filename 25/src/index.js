@@ -4,9 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import configureProductStore from './hooks/products-store';
+import configureProductsStore from './hooks-store/products-store';
 
-configureProductStore();
+configureProductsStore();
 
 ReactDOM.render(
 	<BrowserRouter>
