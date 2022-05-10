@@ -3,7 +3,7 @@
 let age: number;
 age = 12;
 
-let username: string;
+let username: string | string[];
 username = 'kiran';
 
 let isInstructor: boolean;
@@ -26,7 +26,7 @@ person = {
 let people: { name: string; age: number }[];
 
 /* ----------------------------- Type Inference ----------------------------- */
-let course = 'React - The Complete Guide';
-// course = 12345;
+let course: string | number = 'React - The Complete Guide'; // Union Type
+course = 12345;
 
 // Functions types, parameters
