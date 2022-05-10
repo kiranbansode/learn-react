@@ -34,4 +34,12 @@ let people: Person[];
 let course: string | number = 'React - The Complete Guide'; // Union Type
 course = 12345;
 
-// Functions types, parameters
+/* ----------------------- Functions & types ---------------------- */
+
+function add(a: number, b: number) {
+	return a + b;
+}
+
+function printOut(value: any) {
+	console.log(value);
+}
