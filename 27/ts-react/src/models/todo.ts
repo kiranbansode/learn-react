@@ -1,6 +1,6 @@
 class Todo {
 	id: string;
-	text: String;
+	text: string;
 
 	constructor(todoText: string) {
 		this.text = todoText;
