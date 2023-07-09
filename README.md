@@ -1,5 +1,7 @@
 # React - The Complete Guide (incl. React Router & Redux)
 
+![React](https://github.com/kiranbansode/learn-react/assets/50626798/eafaed97-029c-40c3-b3a9-deb5fd579e9b)
+
 ## Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!
 
 ### Created By: Maximilian Schwarzmuller
